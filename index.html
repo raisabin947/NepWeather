@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="Professional NepWeather Forecast App"
+  >
+
+  <title>NepWeather</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+  <div id="splashScreen">
+  <div class="splash-content">
+    <img
+      src="logo.png"
+      alt="NepWeather Logo"
+      class="splash-logo"
+    />
+
+    <h1>NepWeather</h1>
+
+    <p>Your Weather, Your Nepal.</p>
+
+    <div class="loader">
+      <div class="loader-bar"></div>
+    </div>
+
+    <span>Loading...</span>
+  </div>
+</div>
+
+<div class="background-overlay"></div>
+
+<div
+  class="loading-screen hidden"
+  id="loadingScreen"
+>
+  <div class="spinner"></div>
+  <p>Loading weather...</p>
+</div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-title">
+      <img 
+        src="logo.png" 
+        alt="NepWeather Logo" 
+        class="header-logo"
+      />
+      <h1>NepWeather</h1>
+    </div>
+
+    <button
+      id="unitToggle"
+      class="unit-toggle"
+    >
+      °C / °F
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero glass-card">
+
+    <div class="hero-top">
+
+      <div>
+        <p class="label">
+          Current Location
+        </p>
+
+        <h2 id="currentLocation">
+          Detecting...
+        </h2>
+      </div>
+
+      <div class="date-time">
+        <p id="currentDate"></p>
+        <h3 id="currentTime"></h3>
+      </div>
+
+    </div>
+
+    <!-- SEARCH -->
+    <form
+      id="searchForm"
+      class="search-form"
+    >
+      <div class="search-wrapper">
+
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Search city..."
+          autocomplete="off"
+        >
+
+        <button type="submit">
+          Search
+        </button>
+
+      </div>
+
+      <button
+        type="button"
+        id="locationBtn"
+        class="location-btn"
+      >
+        📍 Use My Location
+      </button>
+    </form>
+
+  </section>
+
+  <!-- MESSAGE -->
+  <section
+    id="messageContainer"
+    class="message hidden"
+  ></section>
+
+  <!-- CURRENT WEATHER -->
+  <section
+    id="weatherSection"
+    class="hidden"
+  >
+
+    <div class="weather-card glass-card">
+
+      <div class="weather-top">
+
+        <div>
+          <h2 id="cityName"></h2>
+          <p id="countryName"></p>
+        </div>
+
+        <img
+          id="weatherIcon"
+          src=""
+          alt="Weather Icon"
+        >
+
+      </div>
+
+      <div class="temp-section">
+        <h1 id="temperature"></h1>
+        <p id="weatherCondition"></p>
+
+        <p>
+          Feels Like:
+          <span id="feelsLike"></span>
+        </p>
+      </div>
+
+      <div class="details-grid">
+
+        <div class="detail-card">
+          <span>Humidity</span>
+          <strong id="humidity"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Wind</span>
+          <strong id="windSpeed"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Pressure</span>
+          <strong id="pressure"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Visibility</span>
+          <strong id="visibility"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>UV Index</span>
+          <strong id="uvIndex"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Air Quality</span>
+          <strong id="airQuality"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Sunrise</span>
+          <strong id="sunrise"></strong>
+        </div>
+
+        <div class="detail-card">
+          <span>Sunset</span>
+          <strong id="sunset"></strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- HOURLY FORECAST -->
+  <section
+    id="hourlySection"
+    class="glass-card hidden"
+  >
+    <h2>24-Hour Forecast</h2>
+
+    <div
+      id="hourlyContainer"
+      class="hourly-container"
+    ></div>
+  </section>
+
+  <!-- 5 DAY FORECAST -->
+  <section
+    id="forecastSection"
+    class="hidden"
+  >
+
+    <h2>5-Day Forecast</h2>
+
+    <div
+      id="forecastContainer"
+      class="forecast-grid"
+    ></div>
+
+  </section>
+
+  <!-- EMPTY -->
+  <section
+    id="emptyState"
+    class="glass-card empty-state"
+  >
+    <h2>🌤 Welcome to NepWeather</h2>
+
+    <p>
+      Search for a city or use your current location.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+  <p>
+    © 2026 NepWeather <br/>• Designed & Developed by
+    <strong>Roshan Rai</strong>
+  </p>
+</footer>
+
+</div>
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
